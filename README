@@ -1,0 +1,4 @@
+This is the 2013 code for FRC Team 2358, Bearbotics
+
+To build run 'make'
+To deploy to robot run './deploy'
