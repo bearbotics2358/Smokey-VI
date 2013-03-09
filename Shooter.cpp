@@ -32,10 +32,11 @@ void Shooter::Update()
 		a_speed -= 0.05;
 		a_lock = true;
 
-	}else if(ap_joystick->GetRawButton(SHOOTER_RESET)){
+	} else if(ap_joystick->GetRawButton(SHOOTER_RESET)){
 		a_speed = 0.65;
+		a_lock = false;
 	
-	}else {
+	} else if(!ap_joystick->GetRawButton(SHOOTER_SPEED_UP) && !ap_joystick->GetRawButton(SHOOTER_SPEED_DOWN)){
 		a_lock = false;
 	}
 	

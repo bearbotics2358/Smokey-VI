@@ -13,8 +13,8 @@ class Shooter{
 		Victor *ap_shooter1;
 		Victor *ap_shooter2;
 		
-		double a_speed;
-		bool a_lock;
+		double a_speed; // shooter Victor Voltage setting
+		bool a_lock; // button pressed
 		
 	public:
 		Shooter(Joystick *joystick);

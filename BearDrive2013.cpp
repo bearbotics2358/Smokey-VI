@@ -1,5 +1,8 @@
 #include "BearDrive2013.h"
 
+// updated 3/9/2013
+// for new speed encoders 360 CPR, old were 250
+
 BearDrive2013::BearDrive2013(Joystick *driveStick, BBGyro *gyro)
 {
 		a_counter = 0;
@@ -9,22 +12,22 @@ BearDrive2013::BearDrive2013(Joystick *driveStick, BBGyro *gyro)
   
 		ap_lbDrive = new CANJaguar(LB_DRIVE_ID, CANJaguar::kSpeed);
 		ap_lbDrive->SetSpeedReference(CANJaguar::kSpeedRef_QuadEncoder);
-		ap_lbDrive->ConfigEncoderCodesPerRev(250);
+		ap_lbDrive->ConfigEncoderCodesPerRev(360);
 		ap_lbDrive->SetPID(-0.4, 0.0, 0.0);
 
 		ap_lfDrive = new CANJaguar(LF_DRIVE_ID, CANJaguar::kSpeed);
 		ap_lfDrive->SetSpeedReference(CANJaguar::kSpeedRef_QuadEncoder);
-		ap_lfDrive->ConfigEncoderCodesPerRev(250);
+		ap_lfDrive->ConfigEncoderCodesPerRev(360);
 		ap_lfDrive->SetPID(-0.4, 0.0, 0.0);
 
 		ap_rbDrive = new CANJaguar(RB_DRIVE_ID, CANJaguar::kSpeed);
 		ap_rbDrive->SetSpeedReference(CANJaguar::kSpeedRef_QuadEncoder);
-		ap_rbDrive->ConfigEncoderCodesPerRev(250);
+		ap_rbDrive->ConfigEncoderCodesPerRev(360);
 		ap_rbDrive->SetPID(-0.4, 0.0, 0.0);
 
 		ap_rfDrive = new CANJaguar(RF_DRIVE_ID, CANJaguar::kSpeed);
 		ap_rfDrive->SetSpeedReference(CANJaguar::kSpeedRef_QuadEncoder);
-		ap_rfDrive->ConfigEncoderCodesPerRev(250);
+		ap_rfDrive->ConfigEncoderCodesPerRev(360);
 		ap_rfDrive->SetPID(-0.4, 0.0, 0.0);
   
 		
@@ -108,7 +111,7 @@ BearDrive2013::~BearDrive2013()
 void BearDrive2013::CalcSwerve_FullRotation(double joyX, double joyY, double joyAngle, double wheelAngle, double gyroAngle, double *angleOut, double *speedOut)
 	{
 		double speed;
-		if(fabs(joyX) > fabs(joyY))  // Caluclate speed based on joystick position
+		if(fabs(joyX) > fabs(joyY))  // Calculate speed based on joystick position
 		{
 			speed = fabs(joyX);
 		}
@@ -141,7 +144,10 @@ void BearDrive2013::CalcSwerve_FullRotation(double joyX, double joyY, double joy
 			
 		//	angle += -gyroAngle;  //Field oriented	
 		*angleOut = angle;
-		*speedOut = speed / 2.5;
+
+		// adjust "gain" of joystick based on raw value
+		// low gain when nearer 0, higher gain once threshold passed
+		*speedOut = speed / 3;
 	}
 	
 	
