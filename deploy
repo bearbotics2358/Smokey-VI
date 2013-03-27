@@ -1,3 +1,4 @@
 #! /bin/bash
+cd /home/bearbotics/Development/Smokey_VI/
 make deploy
 socat UDP4-RECV:6666 STDOUT

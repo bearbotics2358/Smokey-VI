@@ -31,9 +31,9 @@ void BBGyro::Update()
 	double gyroAngle = this->GetAngle();
 	
 	if(a_gyroOffset == 0.0){
-		a_gyroOffset = -1 * gyroAngle;
+		a_gyroOffset = 1 * gyroAngle;
 	}
-	a_gyroAngle +=a_gyroOffset;
+	// a_gyroAngle +=a_gyroOffset;
 	while(gyroAngle > 360.0)
 			gyroAngle -= 360.0;
 		while(gyroAngle < -360.0)

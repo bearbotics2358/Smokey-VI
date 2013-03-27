@@ -23,7 +23,7 @@
 #define HANGER_RETRACT_BUTTON 12
 
 //Driving Motor Jaguar IDs
-#define LB_DRIVE_ID 1
+#define LB_DRIVE_ID 11
 #define LF_DRIVE_ID 4
 #define RB_DRIVE_ID 8
 #define RF_DRIVE_ID 5
@@ -41,8 +41,8 @@
 #define RF_SWERVE_ENC 3
 
 //Shooting Motor Victor IDs
-#define SHOOTER1_PORT 9
-#define SHOOTER2_PORT 10
+#define SHOOTER1_PORT 1
+#define SHOOTER2_PORT 2
 
 //Gyro Port #
 #define GYRO_PORT 1
@@ -54,12 +54,12 @@
 #define COMPRESSOR_SWITCH_PORT 1
  
 //Solenoid Port #'s for the feeder
-#define FEEDER_EXTEND_PORT 1
-#define FEEDER_RETRACT_PORT 2
+#define FEEDER_EXTEND_PORT 3
+#define FEEDER_RETRACT_PORT 4
 
 //Solenoid Port #'s for the hanger
-#define HANGER_EXTEND_PORT 3
-#define HANGER_RETRACT_PORT 4
+#define HANGER_EXTEND_PORT 2
+#define HANGER_RETRACT_PORT 1
 // Limit Switch Port #'s
 #define HANGER_LIMIT_SWITCH1_PORT 8
 #define HANGER_LIMIT_SWITCH2_PORT 9

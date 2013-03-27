@@ -21,12 +21,16 @@ public:
 		{}
 
 	// return 0 for no error
+	int readFile();
 	int readFile(string fid);
 
 	// PID values
 	double P;
 	double I;
 	double D;
+
+	// the config file name
+	string m_fid;
 
 } ;
 

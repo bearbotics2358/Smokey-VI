@@ -16,11 +16,19 @@ using namespace std;
 
 configPID::configPID(string fid)
 {
+	m_fid = fid;
 	configPID::readFile(fid);
+}
+
+int configPID::readFile()
+{
+	configPID::readFile(m_fid);
 }
 
 int configPID::readFile(string fid)
 {
+	m_fid = fid;
+
 	ifstream fin;
 	string s1;
 	int i = 0;

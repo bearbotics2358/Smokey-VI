@@ -20,6 +20,8 @@ class Shooter{
 		Shooter(Joystick *joystick);
 		~Shooter();
 		void Update();
+		void Shooter::AutoShoot(double speed);
+		void Shooter::AutoStop();
 		
 		
 };

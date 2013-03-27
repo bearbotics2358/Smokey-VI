@@ -14,6 +14,7 @@
 #include "Hanger.h"
 #include "Camera.h"
 #include "BBGyro.h"
+#include "configAuto.h"
 
 //#define Image_Processing
 
@@ -44,12 +45,16 @@ class SmokeyVI : public IterativeRobot
 	private:
 		typedef enum
 		{
-			AUTON_STATE_IDLE,
-			AUTON_STATE_SQ_RIGHT,
-			AUTON_STATE_SQ_UP,
-			AUTON_STATE_SQ_LEFT,
-			AUTON_STATE_SQ_DOWN,
+			AUTO_STATE_SHOOTING,
+			AUTO_STATE_DELAY_1,
+			AUTO_STATE_DELAY_2,
+			AUTO_STATE_DELAY_3,
+			AUTO_STATE_FEEDING,
+			AUTO_STATE_RETRACTING,
+			AUTO_STATE_IDLE,
+			AUTO_STATE_MOVING,
 		} AutonState;
+
 	
 		Joystick *ap_driveStick;
 		Joystick *ap_shootStick;
@@ -61,12 +66,15 @@ class SmokeyVI : public IterativeRobot
 		Hanger *ap_hanger;
 		Feeder *ap_feeder;
 		BBGyro *ap_gyro;
+		configAuto *ap_configAuto;
 		
 		#if defined (Image_Processing)
 		ImageProcessor *ap_ImageProcessor;
 		#endif	
 			
 		AutonState a_state;
+
+		int a_shotCounter;
 	
 		Timer *ap_autonTimer;
 };

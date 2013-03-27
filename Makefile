@@ -12,4 +12,3 @@ Makefile: ;
 	cd PPC603gnu && exec $(MAKE) -f Makefile_linux "$*"
 
 force: ;
-

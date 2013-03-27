@@ -18,6 +18,8 @@ class Feeder{
 		~Feeder();
 		
 		void Update();
+		void AutoFeed();
+		void AutoRetract();
 		
 };
 

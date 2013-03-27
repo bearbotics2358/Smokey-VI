@@ -7,7 +7,7 @@ Shooter::Shooter(Joystick *joystick)
 	ap_shooter1 = new Victor(SHOOTER1_PORT);
 	ap_shooter2 = new Victor(SHOOTER2_PORT);
 	
-	a_speed = 0.65;
+	a_speed = 0.425;
 	a_lock = false;
 	
 }
@@ -23,6 +23,18 @@ Shooter::~Shooter()
 	ap_shooter2 = NULL;
 }
 
+void Shooter::AutoShoot(double speed)
+{
+	ap_shooter1->Set(speed);
+	ap_shooter2->Set(speed);
+}
+
+void Shooter::AutoStop()
+{
+	ap_shooter1->Set(0.0);
+	ap_shooter2->Set(0.0);
+}
+
 void Shooter::Update()
 {
 	if(ap_joystick->GetRawButton(SHOOTER_SPEED_UP) && !a_lock && a_speed < 1.0){		
@@ -33,7 +45,7 @@ void Shooter::Update()
 		a_lock = true;
 
 	} else if(ap_joystick->GetRawButton(SHOOTER_RESET)){
-		a_speed = 0.65;
+		a_speed = 0.425;
 		a_lock = false;
 	
 	} else if(!ap_joystick->GetRawButton(SHOOTER_SPEED_UP) && !ap_joystick->GetRawButton(SHOOTER_SPEED_DOWN)){

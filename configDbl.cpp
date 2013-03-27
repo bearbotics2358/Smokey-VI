@@ -16,11 +16,18 @@ using namespace std;
 
 configDbl::configDbl(string fid)
 {
+	m_fid = fid;
 	configDbl::readFile(fid);
+}
+int configDbl::readFile()
+{
+	configDbl::readFile(m_fid);
 }
 
 int configDbl::readFile(string fid)
 {
+	m_fid = fid;
+
 	ifstream fin;
 	string s1;
 

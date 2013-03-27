@@ -1,4 +1,3 @@
-
 #include "BBPIDController.h"
 #include <Notifier.h>
 #include <PIDSource.h>

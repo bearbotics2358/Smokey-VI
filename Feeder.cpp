@@ -36,3 +36,14 @@ void Feeder::Update()
 	}
 	
 }
+void Feeder::AutoFeed()
+{
+	ap_retract->Set(false);
+	ap_extend->Set(true);
+}
+
+void Feeder::AutoRetract()
+{
+	ap_retract->Set(true);
+	ap_extend->Set(false);
+}
